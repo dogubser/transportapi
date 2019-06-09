@@ -50,7 +50,7 @@ myConnector.getData = function(table, doneCallback) {
     tableau.registerConnector(myConnector);
 	$(document).ready(function () {
     $("#submitButton").click(function () {
-        tableau.connectionName = "Get Transport Data";
+        tableau.connectionName = "USGS Earthquake Feed";
         tableau.submit();
     });
 });
