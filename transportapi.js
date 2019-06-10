@@ -32,7 +32,7 @@ myConnector.getSchema = function (schemaCallback) {
 };
 
 myConnector.getData = function(table, doneCallback) {
-    $.getJSON("http://transport.opendata.ch/v1/stationboard?station=Glattbrugg&limit=10", function(resp) {
+    $.getJSON("https://transport.opendata.ch/v1/stationboard?station=Glattbrugg&limit=10", function(resp) {
         var feat = resp.features,
             tableData = [];
 
