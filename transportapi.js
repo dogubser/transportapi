@@ -28,7 +28,7 @@ myConnector.getSchema = function (schemaCallback) {
 };
 
 myConnector.getData = function(table, doneCallback) {
-    $.getJSON("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson", function(resp) {
+    $.getJSON("http://transport.opendata.ch/v1/stationboard?station=Glattbrugg&limit=10", function(resp) {
         var feat = resp.features,
             tableData = [];
 
