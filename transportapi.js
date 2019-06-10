@@ -39,11 +39,11 @@ myConnector.getData = function(table, doneCallback) {
         // Iterate over the JSON object
         for (var i = 0, len = feat.length; i < len; i++) {
             tableData.push({
-                "name": feat[i].stop.station.name,
-                "departure": feat[i].stop.departure,
-                "platform": feat[i].stop.platform,
-                "to": feat[i].to,
-				"number": feat[i].number
+                "name": feat[i].stationboard.stop.station.name,
+                "departure": feat[i].stationboard.stop.departure,
+                "platform": feat[i].stationboard.stop.platform,
+                "to": feat[i].stationboard.to,
+				"number": feat[i].stationboard.number
             });
         }
 
