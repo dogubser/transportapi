@@ -3,24 +3,28 @@
 
 myConnector.getSchema = function (schemaCallback) {
     var cols = [{
-        id: "id",
-        dataType: tableau.dataTypeEnum.string
-    }, {
         id: "name",
-        alias: "name",
         dataType: tableau.dataTypeEnum.string
-    }, {
-        id: "coordinate",
-        dataType: tableau.dataTypeEnum.geometry
     }, {
         id: "departure",
         alias: "departure",
         dataType: tableau.dataTypeEnum.string
+    }, {
+        id: "platform",
+        dataType: tableau.dataTypeEnum.int
+    }, {
+        id: "to",
+        alias: "to",
+        dataType: tableau.dataTypeEnum.string
+	}, {
+        id: "number",
+        alias: "number",
+        dataType: tableau.dataTypeEnum.int
 	}];
 
     var tableSchema = {
-        id: "earthquakeFeed",
-        alias: "Earthquakes with magnitude greater than 4.5 in the last seven days",
+        id: "Transportapi",
+        alias: "stationboard of coming stations in Switzerland",
         columns: cols
     };
 
@@ -35,10 +39,11 @@ myConnector.getData = function(table, doneCallback) {
         // Iterate over the JSON object
         for (var i = 0, len = feat.length; i < len; i++) {
             tableData.push({
-                "id": feat[i].id,
-                "name": feat[i].properties.name,
-                "coordinate": feat[i].properties.coordinate,
-                "departure": feat[i].departure
+                "name": feat[i].stop.station.name,
+                "departure": feat[i].stop.departure,
+                "platform": feat[i].stop.platform,
+                "to": feat[i].to,
+				"number": feat[i].number
             });
         }
 
