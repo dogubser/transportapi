@@ -6,17 +6,17 @@ myConnector.getSchema = function (schemaCallback) {
         id: "id",
         dataType: tableau.dataTypeEnum.string
     }, {
-        id: "mag",
-        alias: "magnitude",
-        dataType: tableau.dataTypeEnum.float
-    }, {
-        id: "title",
-        alias: "title",
+        id: "name",
+        alias: "name",
         dataType: tableau.dataTypeEnum.string
     }, {
-        id: "location",
+        id: "coordinate",
         dataType: tableau.dataTypeEnum.geometry
-    }];
+    }, {
+        id: "departure",
+        alias: "departure",
+        dataType: tableau.dataTypeEnum.string
+	}];
 
     var tableSchema = {
         id: "earthquakeFeed",
@@ -36,9 +36,9 @@ myConnector.getData = function(table, doneCallback) {
         for (var i = 0, len = feat.length; i < len; i++) {
             tableData.push({
                 "id": feat[i].id,
-                "mag": feat[i].properties.mag,
-                "title": feat[i].properties.title,
-                "location": feat[i].geometry
+                "name": feat[i].properties.name,
+                "coordinate": feat[i].properties.coordinate,
+                "departure": feat[i].departure
             });
         }
 
